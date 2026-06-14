@@ -1,0 +1,18 @@
+<aside class="fixed top-1.5 bottom-1.5 left-1 z-40 w-64 rounded-md border border-zinc-100 bg-white">
+  <div
+    class="h-full scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent space-y-5 overflow-x-hidden overflow-y-auto scroll-smooth p-2"
+  >
+    <h1 class="inline-flex items-center gap-2 text-xl">Angular Lab</h1>
+    <div>
+      <app-side-menu />
+    </div>
+  </div>
+</aside>
+
+<div
+  class="fixed top-1.5 right-1.5 bottom-1.5 left-66 z-40 rounded-md border border-zinc-100 bg-white"
+>
+  <div class="h-full overflow-x-hidden overflow-y-auto p-2">
+    <ng-content />
+  </div>
+</div>

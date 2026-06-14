@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: 'learn',
+    loadComponent: () => import('./features/learn/learn').then((c) => c.Learn),
+    loadChildren: () => import('./features/learn/learn.routes').then((r) => r.routes),
+  },
+];
