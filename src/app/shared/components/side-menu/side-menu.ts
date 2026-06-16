@@ -19,7 +19,7 @@ import { RouterLink } from '@angular/router';
     RouterLink,
   ],
   templateUrl: './side-menu.html',
-  styleUrl: './side-menu.scss',
+  styleUrl: './side-menu.css',
 })
 export class SideMenu {
   dataSource = MENUS;

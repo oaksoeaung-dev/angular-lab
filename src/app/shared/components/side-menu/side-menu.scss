@@ -1,7 +1,0 @@
-@use '@angular/material' as mat;
-
-:host {
-  @include mat.tree-overrides((
-    container-background-color: white
-  ));
-}

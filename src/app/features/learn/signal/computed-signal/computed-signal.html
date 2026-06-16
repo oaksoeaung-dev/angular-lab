@@ -1,0 +1,45 @@
+<app-page-header>Computed Signal</app-page-header>
+<div class="flex items-center gap-2">
+  <mat-chip-set>
+    <mat-chip>
+      <img
+        matChipAvatar
+        ngSrc="/images/faces/face-1.png"
+        [fill]="true"
+        alt="person"
+        class="object-cover"
+      />
+      {{ person1() }}
+    </mat-chip>
+    <mat-chip>Salary : {{ person1Amount() }}</mat-chip>
+  </mat-chip-set>
+  <div class="space-x-2">
+    <button matButton="filled" (click)="increasePerson1Amount()">Increase Amount</button>
+  </div>
+</div>
+
+<div class="flex items-center gap-2">
+  <mat-chip-set>
+    <mat-chip>
+      <img
+        matChipAvatar
+        ngSrc="/images/faces/face-2.png"
+        [fill]="true"
+        alt="person"
+        class="object-cover"
+      />
+      {{ person2() }}
+    </mat-chip>
+    <mat-chip>Salary : {{ person2Amount() }}</mat-chip>
+  </mat-chip-set>
+
+  <div class="space-x-2">
+    <button matButton="filled" (click)="increasePerson2Amount()">Increase Amount</button>
+  </div>
+</div>
+
+<div>
+  <mat-chip-set>
+    <mat-chip>Total : {{ total() }}</mat-chip>
+  </mat-chip-set>
+</div>

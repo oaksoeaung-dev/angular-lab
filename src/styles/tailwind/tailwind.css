@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-inter: var(--inter);
+
+  --color-primary: var(--primary);
+}

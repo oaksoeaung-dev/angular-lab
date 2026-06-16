@@ -1,5 +1,5 @@
 import { MenuNode } from '../models/menu-node.model';
-import { LucideLibrary, LucideRadioTower } from '@lucide/angular';
+import { LucideLibrary, LucideNotepadText, LucideRadioTower } from '@lucide/angular';
 
 export const MENUS: MenuNode[] = [
   {
@@ -9,7 +9,18 @@ export const MENUS: MenuNode[] = [
       {
         name: 'Signal',
         icon: LucideRadioTower,
-        routerLink: 'learn/signal',
+        children: [
+          {
+            name: 'Writable Signal',
+            icon: LucideNotepadText,
+            routerLink: 'learn/signal/writable-signal',
+          },
+          {
+            name: 'Computed Signal',
+            icon: LucideNotepadText,
+            routerLink: 'learn/signal/computed-signal',
+          },
+        ],
       },
     ],
   },
