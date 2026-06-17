@@ -1,0 +1,25 @@
+<app-page-header>Create Form</app-page-header>
+
+<div class="rounded-radius border-border grid grid-cols-4 gap-2 border p-5">
+  <div class="border-border rounded-radius col-span-3 border">
+    <div class="p-5">
+      <form [formGroup]="form">
+        <formly-form [form]="form" [fields]="fieldContainer()" [(model)]="result"></formly-form>
+      </form>
+    </div>
+  </div>
+  <div class="border-border rounded-radius col-span-1 border">
+    @for (field of defaultFields(); track field.type) {
+      <div
+        class="rounded-radius cursor-pointer bg-sky-50 p-5 hover:bg-sky-100"
+        (click)="onAdd(field)"
+      >
+        {{ field.type }}
+      </div>
+    }
+  </div>
+</div>
+
+<div class="mt-4">
+  <button matButton="filled" (click)="getResult()">Get</button>
+</div>

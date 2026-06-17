@@ -1,7 +1,8 @@
 :root{
   --mat-button-filled-label-text-size: var(--text-sm);
   --mat-button-filled-label-text-weight: 500;
-  --mat-button-filled-container-height: 32px;
-  --mat-button-filled-container-shape: 8px;
+  --mat-button-filled-container-height: 36px;
+  --mat-button-filled-container-shape: var(--radius-radius);
   --mat-button-filled-container-color: var(--color-primary);
+  --mat-button-filled-label-text-color: var(--color-primary-foreground);
 }

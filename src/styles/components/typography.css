@@ -1,25 +1,25 @@
 @layer components {
   h1 {
-    @apply scroll-m-20 text-4xl font-bold tracking-tight text-primary;
+    @apply scroll-m-20 text-4xl font-bold tracking-tight text-foreground;
   }
 
   h2 {
-    @apply scroll-m-20 text-3xl font-semibold tracking-tight;
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight text-foreground;
   }
 
   h3 {
-    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight text-foreground;
   }
 
   h4 {
-    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+    @apply scroll-m-20 text-xl font-semibold tracking-tight text-foreground;
   }
 
   p {
-    @apply leading-7;
+    @apply leading-7 text-foreground;
   }
 
   body {
-    @apply text-primary font-inter;
+    @apply text-foreground font-inter bg-muted;
   }
 }

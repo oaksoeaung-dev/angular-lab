@@ -1,5 +1,5 @@
 :root {
-  --mat-chip-container-height: 32px;
+  --mat-chip-container-height: 36px;
   --mat-chip-label-text-color: var(--color-primary);
   --mat-chip-label-text-size: var(--text-sm);
 }

@@ -1,0 +1,25 @@
+:root {
+  --mat-form-field-outlined-container-shape: var(--radius-radius);
+
+  --mat-form-field-outlined-focus-outline-color: var(--color-primary);
+  --mat-form-field-outlined-error-focus-outline-color: var(--color-destructive);
+
+  --mat-form-field-outlined-hover-outline-color: var(--color-primary);
+  --mat-form-field-outlined-error-hover-outline-color: var(--color-destructive);
+
+  --mat-form-field-outlined-outline-color: var(--color-border);
+  --mat-form-field-outlined-error-outline-color: var(--color-destructive);
+
+  --mat-form-field-outlined-input-text-color: var(--color-primary);
+  --mat-form-field-container-text-size: var(--text-sm);
+  --mat-form-field-container-text-line-height: var(--text-sm--line-height);
+
+  --mat-form-field-container-height: 0;
+
+
+  --mat-form-field-outlined-caret-color: var(--color-primary);
+  --mat-form-field-outlined-error-caret-color: var(--color-destructive);
+
+  --mat-form-field-error-text-color: var(--color-destructive);
+  --mat-form-field-container-vertical-padding: 7px;
+}

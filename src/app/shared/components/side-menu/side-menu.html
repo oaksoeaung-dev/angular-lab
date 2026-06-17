@@ -1,13 +1,16 @@
-<mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor">
+<mat-tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor">
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding matTreeNodePaddingIndent="16">
     <a
-      class="flex w-full cursor-pointer items-center gap-2 rounded-lg p-1.5 hover:bg-gray-50"
-      routerLink="{{ node.routerLink }}"
+      class="hover:bg-accent flex w-full cursor-pointer items-center gap-2 rounded-lg p-1.5"
+      [routerLink]="node.routerLink"
     >
-      <div class="shrink-0 rounded-sm bg-rose-100 p-1 ring ring-rose-200">
-        <svg [lucideIcon]="node.icon" size="12" class="stroke-rose-500" />
+      <div
+        class="shrink-0 rounded-sm p-1 ring"
+        [class]="[colorMapper[node.color].bg, colorMapper[node.color].ring]"
+      >
+        <svg [lucideIcon]="node.icon" size="12" [class]="colorMapper[node.color].stroke" />
       </div>
-      <span class="text-sm">{{ node.name }}</span>
+      <span>{{ node.name }}</span>
     </a>
   </mat-tree-node>
 
@@ -19,14 +22,17 @@
     [cdkTreeNodeTypeaheadLabel]="node.name"
   >
     <a
-      class="flex w-full cursor-pointer items-center gap-2 rounded-lg p-1.5 hover:bg-gray-50"
+      class="hover:bg-accent flex w-full cursor-pointer items-center gap-2 rounded-lg p-1.5"
       matRipple
-      routerLink="{{ node.routerLink }}"
+      [routerLink]="node.routerLink"
     >
-      <div class="shrink-0 rounded-sm bg-rose-100 p-1 ring ring-rose-200">
-        <svg [lucideIcon]="node.icon" size="12" class="stroke-rose-500" />
+      <div
+        class="shrink-0 rounded-sm p-1 ring"
+        [class]="[colorMapper[node.color].bg, colorMapper[node.color].ring]"
+      >
+        <svg [lucideIcon]="node.icon" size="12" [class]="colorMapper[node.color].stroke" />
       </div>
-      <span class="text-sm">{{ node.name }}</span>
+      <span>{{ node.name }}</span>
     </a>
   </mat-tree-node>
 </mat-tree>

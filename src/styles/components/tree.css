@@ -1,0 +1,4 @@
+:root {
+  --mat-tree-container-background-color: transparent;
+  --mat-tree-node-text-size: var(--text-xs);
+}

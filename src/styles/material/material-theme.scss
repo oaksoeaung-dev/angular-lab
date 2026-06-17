@@ -8,6 +8,7 @@ html {
         primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
+      typography: var(--font-inter),
       density: -4,
     )
   );
