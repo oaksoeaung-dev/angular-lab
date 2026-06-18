@@ -5,4 +5,9 @@
   --mat-button-filled-container-shape: var(--radius-radius);
   --mat-button-filled-container-color: var(--color-primary);
   --mat-button-filled-label-text-color: var(--color-primary-foreground);
+
+  --mat-button-text-container-height: 36px;
+  --mat-button-text-container-shape: var(--radius-radius);
+  --mat-button-text-label-text-color: var(--color-primary);
+  --mat-button-text-state-layer-color: var(--color-primary);
 }

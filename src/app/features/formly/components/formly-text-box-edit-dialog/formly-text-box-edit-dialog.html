@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Edit Text Box</h2>
+<mat-dialog-content>
+  <div class="grid gap-2">
+    <mat-label>Label</mat-label>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="label" />
+    </mat-form-field>
+  </div>
+  <div class="grid gap-2">
+    <mat-label>Name</mat-label>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton matDialogClose>Cancel</button>
+  <button matButton (click)="save()">Save</button>
+</mat-dialog-actions>
