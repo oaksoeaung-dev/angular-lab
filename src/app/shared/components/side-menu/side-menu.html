@@ -3,6 +3,8 @@
     <a
       class="hover:bg-accent flex w-full cursor-pointer items-center gap-2 rounded-lg p-1.5"
       [routerLink]="node.routerLink"
+      routerLinkActive="bg-accent"
+      [routerLinkActiveOptions]="{ exact: true }"
     >
       <div
         class="shrink-0 rounded-sm p-1 ring"

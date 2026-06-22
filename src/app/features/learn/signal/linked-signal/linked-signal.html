@@ -1,0 +1,27 @@
+<app-page-header>Linked Signal</app-page-header>
+
+<div class="space-x-2">
+  <button matButton="filled" (click)="addProduct()" [disabled]="disableAdd()">Add Product</button>
+  <button matButton="filled" (click)="removeProduct()" [disabled]="disableRemove()">
+    Remove Product
+  </button>
+</div>
+
+<div class="mt-5">
+  <mat-chip-listbox [selectable]="false">
+    @for (product of products(); track product) {
+      <mat-chip-option [selected]="selectedProduct() === product">{{ product }}</mat-chip-option>
+    }
+  </mat-chip-listbox>
+</div>
+
+<div class="mt-5">
+  <mat-chip-set>
+    <mat-chip>SELECTED PRODUCT : {{ selectedProduct() }}</mat-chip>
+  </mat-chip-set>
+</div>
+
+<div class="mt-5 space-x-2">
+  <button matButton="filled" (click)="prevProduct()">Prev Product</button>
+  <button matButton="filled" (click)="nextProduct()">Next Product</button>
+</div>

@@ -17,14 +17,6 @@ export class FormlyFieldWrapper extends FieldWrapper {
   private fieldControl = inject(FieldControl);
   readonly dialog = inject(MatDialog);
 
-  onEdit(data: FormlyFieldConfig) {
-    /*this.fieldControl.update.emit({
-      ...data,
-      key: 'lastName',
-      props: { ...data.props, label: 'Last Name' },
-    });*/
-  }
-
   onDelete(data: FormlyFieldConfig) {
     this.fieldControl.delete.emit(data);
   }

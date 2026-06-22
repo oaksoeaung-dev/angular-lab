@@ -30,6 +30,18 @@ export const MENUS: MenuNode[] = [
             color: 'rose',
             routerLink: 'learn/signal/computed-signal',
           },
+          {
+            name: 'Effect Signal',
+            icon: LucideNotepadText,
+            color: 'rose',
+            routerLink: 'learn/signal/effect-signal',
+          },
+          {
+            name: 'Linked Signal',
+            icon: LucideNotepadText,
+            color: 'rose',
+            routerLink: 'learn/signal/linked-signal',
+          },
         ],
       },
     ],
