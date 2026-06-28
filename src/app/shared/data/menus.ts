@@ -57,6 +57,12 @@ export const MENUS: MenuNode[] = [
         color: 'sky',
         routerLink: 'formly/create-form',
       },
+      {
+        name: 'View Form',
+        icon: LucideFilePlusCorner,
+        color: 'sky',
+        routerLink: 'formly/view-form',
+      },
     ],
   },
 ];

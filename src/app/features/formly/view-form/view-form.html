@@ -1,0 +1,27 @@
+<app-page-header>View Form</app-page-header>
+
+<div>
+  <div class="mb-10">
+    <form-field-wrapper label="Configs">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+        <textarea
+          matInput
+          placeholder="Paste config here"
+          rows="5"
+          [(ngModel)]="configs"
+        ></textarea>
+      </mat-form-field>
+    </form-field-wrapper>
+
+    <hr class="mt-5 border-gray-300" />
+  </div>
+
+  <form [formGroup]="form" class="p-5">
+    <formly-form [form]="form" [fields]="fields()" [(model)]="model"></formly-form>
+    @if (configs()) {
+      <div class="mt-5">
+        <button (click)="submit()" matButton="filled" [disabled]="form.invalid">Submit</button>
+      </div>
+    }
+  </form>
+</div>

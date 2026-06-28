@@ -1,17 +1,17 @@
 import { ConfigOption } from '@ngx-formly/core';
-import { FormlyTextBox } from '../../features/formly/components/formly-text-box/formly-text-box';
-import { FormlyFieldWrapper } from '../../features/formly/components/formly-field-wrapper/formly-field-wrapper';
+import { TextBox } from '../../features/formly/components/field-types/text-box/text-box';
+import { FieldController } from '../../features/formly/components/wrappers/field-controller/field-controller';
 
 export const TypeAliases: ConfigOption[] = [
   {
     types: [
       {
-        name: 'textbox',
-        component: FormlyTextBox,
+        name: 'text-box',
+        component: TextBox,
       },
     ],
   },
   {
-    wrappers: [{ name: 'formly-field-wrapper', component: FormlyFieldWrapper }],
+    wrappers: [{ name: 'field-controller', component: FieldController }],
   },
 ];

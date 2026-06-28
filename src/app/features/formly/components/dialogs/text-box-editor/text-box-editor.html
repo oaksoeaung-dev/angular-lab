@@ -1,0 +1,82 @@
+<app-dialog-container [title]="`Edit ${data.props?.label}`">
+  <div class="space-y-5">
+    <form-field-wrapper label="Key">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+        <input matInput [formField]="textBoxForm.key" />
+
+        @if (textBoxForm.key().invalid() && textBoxForm.key().touched()) {
+          <mat-error>
+            @for (error of textBoxForm.key().errors(); track error.kind) {
+              <span>{{ error.message }}</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </form-field-wrapper>
+
+    <form-field-wrapper label="Label">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+        <input matInput [formField]="textBoxForm.props.label" />
+      </mat-form-field>
+    </form-field-wrapper>
+
+    <form-field-wrapper label="Description">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+        <input matInput [formField]="textBoxForm.props.description" />
+      </mat-form-field>
+    </form-field-wrapper>
+
+    <form-field-wrapper label="Placeholder">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+        <input matInput [formField]="textBoxForm.props.placeholder" />
+      </mat-form-field>
+    </form-field-wrapper>
+
+    <div>
+      <mat-label class="mb-2 block cursor-default text-xs font-medium 2xl:text-sm"
+        >Required</mat-label
+      >
+      <mat-slide-toggle [formField]="textBoxForm.props.required"> </mat-slide-toggle>
+    </div>
+
+    <div>
+      <mat-label class="mb-2 block cursor-default text-xs font-medium 2xl:text-sm"
+        >Readonly</mat-label
+      >
+      <mat-slide-toggle [formField]="textBoxForm.props.readonly"> </mat-slide-toggle>
+    </div>
+
+    <div>
+      <mat-label class="mb-2 block cursor-default text-xs font-medium 2xl:text-sm"
+        >Disabled</mat-label
+      >
+      <mat-slide-toggle [formField]="textBoxForm.props.disabled"> </mat-slide-toggle>
+    </div>
+    <div class="grid grid-cols-5 gap-2">
+      <mat-label class="col-span-5 mb-2 block cursor-default text-xs font-medium 2xl:text-sm"
+        >Expression</mat-label
+      >
+      @for (expression of textBoxModel().expressions; track $index) {
+        <form-field-wrapper label="Property" class="col-span-2">
+          <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+            <input matInput [formField]="textBoxForm.expressions[$index].property" />
+          </mat-form-field>
+        </form-field-wrapper>
+
+        <form-field-wrapper label="Value" class="col-span-2">
+          <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+            <input matInput [formField]="textBoxForm.expressions[$index].value" />
+          </mat-form-field>
+        </form-field-wrapper>
+        <div class="inline-flex items-end">
+          <button matButton="filled" (click)="removeExpression($index)">-</button>
+        </div>
+      }
+
+      <div>
+        <button matButton="filled" (click)="addExpression()" class="">+</button>
+      </div>
+    </div>
+  </div>
+  <button matButton="filled" (click)="save()" [disabled]="textBoxForm().invalid()">Save</button>
+</app-dialog-container>
