@@ -12,7 +12,6 @@ import { PageHeader } from '../../../../shared/components/page-header/page-heade
 export class WritableSignal {
   age = signal<number>(26);
   name = signal<string>('Oak Soe Aung');
-
   resetAge() {
     this.age.set(26);
   }

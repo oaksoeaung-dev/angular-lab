@@ -1,0 +1,8 @@
+<div
+  class="flex items-start rounded-lg p-4 text-sm sm:items-center"
+  [class]="colorMapper[toastRef.data.tone]"
+>
+  @if (message()) {
+    <p>{{ message() }}</p>
+  }
+</div>
