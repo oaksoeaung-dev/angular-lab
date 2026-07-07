@@ -1,19 +1,64 @@
-<div class="border-border rounded-radius mb-3 border bg-white p-3">
-  <div class="flex justify-end gap-3">
+<div class="editor-field" [class.editor-field--open]="settingsOpen">
+  <div class="editor-field__header">
+    <mat-icon class="editor-field__drag-hint">tune</mat-icon>
+    <span class="editor-field__key">{{ field.key }}</span>
+
+    @if (heldDisabled) {
+      <span class="editor-field__badge">
+        <mat-icon inline>block</mat-icon>
+        disabled in viewer
+      </span>
+    }
+    @if (requiredValue) {
+      <span class="editor-field__badge editor-field__badge--required">required</span>
+    }
+
+    <span class="editor-field__spacer"></span>
+
     <button
-      class="border-border hover:bg-destructive/5 inline-flex size-8 cursor-pointer items-center justify-center rounded-lg border"
-      matRipple
-      (click)="delete(field)"
+      mat-icon-button
+      type="button"
+      (click)="settingsOpen = !settingsOpen"
+      [attr.aria-label]="settingsOpen ? 'Close field settings' : 'Edit field settings'"
     >
-      <svg lucideTrash class="stroke-destructive size-3" />
-    </button>
-    <button
-      class="border-border inline-flex size-8 cursor-pointer items-center justify-center rounded-lg border"
-      matRipple
-      (click)="edit(field)"
-    >
-      <svg lucidePenLine class="size-3" />
+      <mat-icon>{{ settingsOpen ? 'expand_less' : 'settings' }}</mat-icon>
     </button>
   </div>
-  <ng-container #fieldComponent></ng-container>
+
+  @if (settingsOpen) {
+    <div class="editor-field__settings">
+      <!-- IMMEDIATE: reflected in the preview below as you type -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Label</mat-label>
+        <input matInput [(ngModel)]="labelValue" [ngModelOptions]="{ standalone: true }" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Placeholder</mat-label>
+        <input matInput [(ngModel)]="placeholderValue" [ngModelOptions]="{ standalone: true }" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="editor-field__wide">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="descriptionValue" [ngModelOptions]="{ standalone: true }" />
+      </mat-form-field>
+
+      <div class="editor-field__toggles">
+        <mat-checkbox [(ngModel)]="requiredValue" [ngModelOptions]="{ standalone: true }">
+          Required
+        </mat-checkbox>
+
+        <!-- HELD: stored only, never applied in the editor -->
+        <mat-slide-toggle [(ngModel)]="heldDisabled" [ngModelOptions]="{ standalone: true }">
+          Disable field
+          <span class="editor-field__toggle-note">(takes effect in viewer only)</span>
+        </mat-slide-toggle>
+      </div>
+    </div>
+  }
+
+  <div class="editor-field__preview">
+    <!-- The wrapped custom type is rendered here -->
+    <ng-container #fieldComponent></ng-container>
+  </div>
 </div>

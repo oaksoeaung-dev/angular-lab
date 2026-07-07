@@ -1,1 +1,16 @@
-<router-outlet />
+<main class="shell">
+  <h1 class="shell__title">Form builder</h1>
+
+  <mat-tab-group #tabs animationDuration="150ms">
+    <mat-tab label="Editor">
+      <div class="shell__tab">
+        <app-create-form (configGenerated)="goToViewer()" />
+      </div>
+    </mat-tab>
+    <mat-tab label="Viewer">
+      <div class="shell__tab">
+        <app-view-form />
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</main>

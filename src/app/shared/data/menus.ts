@@ -56,19 +56,6 @@ export const MENUS: MenuNode[] = [
     name: 'Formly',
     icon: LucideForm,
     color: 'sky',
-    children: [
-      {
-        name: 'Create Form',
-        icon: LucideFilePlusCorner,
-        color: 'sky',
-        routerLink: 'formly/create-form',
-      },
-      {
-        name: 'View Form',
-        icon: LucideFilePlusCorner,
-        color: 'sky',
-        routerLink: 'formly/view-form',
-      },
-    ],
+    routerLink: 'formly',
   },
 ];

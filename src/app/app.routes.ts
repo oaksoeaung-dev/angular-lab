@@ -9,6 +9,5 @@ export const routes: Routes = [
   {
     path: 'formly',
     loadComponent: () => import('./features/formly/formly').then((c) => c.Formly),
-    loadChildren: () => import('./features/formly/formly.routes').then((r) => r.routes),
   },
 ];

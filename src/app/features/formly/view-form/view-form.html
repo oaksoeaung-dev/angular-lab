@@ -1,27 +1,27 @@
-<app-page-header>View Form</app-page-header>
+@if (fields().length > 0) {
+  <p class="page-hint">
+    Rendered purely from the generated config — no editor wrapper here. Fields you disabled in the
+    editor are disabled now.
+  </p>
 
-<div>
-  <div class="mb-10">
-    <form-field-wrapper label="Configs">
-      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
-        <textarea
-          matInput
-          placeholder="Paste config here"
-          rows="5"
-          [(ngModel)]="configs"
-        ></textarea>
-      </mat-form-field>
-    </form-field-wrapper>
+  <form [formGroup]="form()" (ngSubmit)="onSubmit()">
+    <formly-form [form]="form()" [fields]="fields()" [model]="model()" />
 
-    <hr class="mt-5 border-gray-300" />
-  </div>
-
-  <form [formGroup]="form" class="p-5">
-    <formly-form [form]="form" [fields]="fields()" [(model)]="model"></formly-form>
-    @if (configs()) {
-      <div class="mt-5">
-        <button (click)="submit()" matButton="filled" [disabled]="form.invalid">Submit</button>
-      </div>
-    }
+    <button mat-flat-button type="submit" [disabled]="form().invalid">
+      <mat-icon>send</mat-icon>
+      Submit
+    </button>
   </form>
-</div>
+
+  @if (submittedValue(); as value) {
+    <pre class="value-preview"><code>{{ value | json }}</code></pre>
+  }
+} @else {
+  <div class="empty-state">
+    <mat-icon class="empty-state__icon">visibility_off</mat-icon>
+    <p>
+      No config yet. Go to the <strong>Editor</strong> tab, adjust your fields, and press
+      <strong>Generate config</strong>.
+    </p>
+  </div>
+}

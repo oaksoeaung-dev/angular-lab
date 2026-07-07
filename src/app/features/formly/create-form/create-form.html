@@ -1,31 +1,26 @@
-<app-page-header>Create Form</app-page-header>
+<p class="page-hint">
+  Open a field's <strong>settings</strong> to edit it. Label, placeholder, description and required
+  update the preview immediately. The <strong>Disable</strong> toggle is only stored — the field
+  stays usable here and is disabled in the viewer after you generate the config.
+</p>
 
-<div class="rounded-radius border-border bg-card grid grid-cols-4 gap-2 border p-5">
-  <div class="border-border rounded-radius col-span-3 border">
-    <div class="bg-gray-50 p-5">
-      <formly-form [fields]="fields()"></formly-form>
-    </div>
-  </div>
-  <div>
-    <div class="border-border rounded-radius col-span-1 border p-2">
-      @for (field of defaultFields(); track field.type) {
-        <div
-          class="rounded-radius cursor-pointer bg-sky-50 p-5 hover:bg-sky-100"
-          (click)="onAdd(field)"
-        >
-          {{ field.type }}
-        </div>
-      }
-    </div>
-  </div>
-</div>
+<form [formGroup]="form">
+  <formly-form [form]="form" [fields]="fields" [model]="model" />
+</form>
 
-@if (hasDuplicateKeys()) {
-  <p class="text-destructive mt-5 text-lg font-medium">Keys cannot be duplicate!</p>
-}
-
-<div class="mt-10">
-  <button matButton="filled" [cdkCopyToClipboard]="configs()" [disabled]="hasDuplicateKeys()">
-    Copy Config
+<div class="editor-actions">
+  <button mat-flat-button type="button" (click)="generateConfig()">
+    <mat-icon>bolt</mat-icon>
+    Generate config
   </button>
+  @if (configService.generatedJson(); as json) {
+    <button mat-stroked-button type="button" (click)="copyConfig(json)">
+      <mat-icon>content_copy</mat-icon>
+      {{ copied ? 'Copied!' : 'Copy JSON' }}
+    </button>
+  }
 </div>
+
+@if (configService.generatedJson(); as json) {
+  <pre class="config-preview"><code>{{ json }}</code></pre>
+}

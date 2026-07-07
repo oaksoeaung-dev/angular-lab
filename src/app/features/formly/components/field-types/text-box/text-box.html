@@ -1,13 +1,24 @@
-<mat-label class="block text-sm font-medium">{{ props.label }}</mat-label>
-<mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full">
+<mat-form-field appearance="outline" class="custom-input-field">
+  @if (props.label) {
+    <mat-label>{{ props.label }}</mat-label>
+  }
+
   <input
     matInput
+    [type]="props.type || 'text'"
     [formControl]="formControl"
     [formlyAttributes]="field"
-    [placeholder]="props.placeholder ?? ''"
-    [readonly]="props.readonly"
+    [placeholder]="props.placeholder || ''"
+    [required]="!!props.required"
   />
+
   @if (props.description) {
-    <mat-hint align="start" class="text-muted-foreground">{{ props.description }}</mat-hint>
+    <mat-hint>{{ props.description }}</mat-hint>
+  }
+
+  @if (formControl.invalid && formControl.touched) {
+    <mat-error>
+      <formly-validation-message [field]="field" />
+    </mat-error>
   }
 </mat-form-field>

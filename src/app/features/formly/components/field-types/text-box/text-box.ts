@@ -6,10 +6,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'f-text-box',
-  imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule, FormlyModule],
+  imports: [ReactiveFormsModule, FormlyModule, MatFormFieldModule, MatInputModule],
   templateUrl: './text-box.html',
   host: {
     class: 'grid gap-2',
   },
+  styles: `
+    .custom-input-field {
+      display: block;
+      width: 100%;
+    }
+  `,
 })
 export class TextBox extends FieldType<FieldTypeConfig> {}
