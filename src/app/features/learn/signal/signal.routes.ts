@@ -17,4 +17,9 @@ export const routes: Route[] = [
     path: 'linked-signal',
     loadComponent: () => import('./linked-signal/linked-signal').then((c) => c.LinkedSignal),
   },
+  {
+    path: 'signal-base-service',
+    loadComponent: () =>
+      import('./signal-base-service/signal-base-service').then((c) => c.SignalBaseService),
+  },
 ];

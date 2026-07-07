@@ -42,6 +42,12 @@ export const MENUS: MenuNode[] = [
             color: 'rose',
             routerLink: 'learn/signal/linked-signal',
           },
+          {
+            name: 'Signal Base Service',
+            icon: LucideNotepadText,
+            color: 'rose',
+            routerLink: 'learn/signal/signal-base-service',
+          },
         ],
       },
     ],

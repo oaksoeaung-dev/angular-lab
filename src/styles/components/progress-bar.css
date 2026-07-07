@@ -1,0 +1,6 @@
+:root {
+  --mat-progress-bar-active-indicator-color: var(--color-primary);
+  --mat-progress-bar-active-indicator-height: 12px;
+  --mat-progress-bar-track-height: 12px;
+  --mat-progress-bar-track-color: var(--color-muted);
+}

@@ -1,0 +1,14 @@
+<div class="space-y-3">
+  <div class="border-border space-y-3 rounded-lg border p-5">
+    <h4>Quiz is done</h4>
+    <p class="text-sm">
+      You have answered {{ correct() }} out of {{ total() }} questions correctly.
+    </p>
+  </div>
+
+  <div class="border-border space-y-3 rounded-lg border p-5">
+    <h4>Score: {{ score() | percent }}</h4>
+
+    <button (click)="restart.emit()" matButton="filled">Restart Difficulty</button>
+  </div>
+</div>
