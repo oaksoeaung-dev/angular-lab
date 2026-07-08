@@ -4,7 +4,7 @@
   <div class="space-y-3">
     @for (answer of question().answers; track $index) {
       <div
-        class="flex items-center gap-5 rounded-lg bg-gray-50 p-2 text-sm"
+        class="flex cursor-pointer items-center gap-5 rounded-lg bg-gray-100/50 p-2 text-sm hover:bg-gray-100"
         (click)="onAnswer($index)"
         matRipple
       >
