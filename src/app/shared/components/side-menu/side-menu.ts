@@ -31,6 +31,7 @@ export class SideMenu {
   protected colorMapper: Record<string, { bg: string; stroke: string; ring: string }> = {
     rose: { bg: 'bg-rose-100', stroke: 'stroke-rose-500', ring: 'ring-rose-200' },
     sky: { bg: 'bg-sky-100', stroke: 'stroke-sky-500', ring: 'ring-sky-200' },
+    blue: { bg: 'bg-blue-100', stroke: 'stroke-blue-500', ring: 'ring-blue-500' },
   };
 
   childrenAccessor = (node: MenuNode) => node.children ?? [];

@@ -1,10 +1,12 @@
 import { MenuNode } from '../models/menu-node.model';
 import {
   LucideFilePlusCorner,
+  LucideFlaskConical,
   LucideForm,
   LucideLibrary,
   LucideNotepadText,
   LucideRadioTower,
+  LucideTestTube,
 } from '@lucide/angular';
 
 export const MENUS: MenuNode[] = [
@@ -70,5 +72,11 @@ export const MENUS: MenuNode[] = [
         routerLink: 'formly/view-form',
       },
     ],
+  },
+  {
+    name: 'Test',
+    icon: LucideFlaskConical,
+    color: 'blue',
+    routerLink: 'test',
   },
 ];
