@@ -3,4 +3,4 @@ export interface ToastDataModel {
   tone: ToastTone;
 }
 
-export type ToastTone = 'success' | 'danger';
+export type ToastTone = 'success' | 'danger' | 'info';

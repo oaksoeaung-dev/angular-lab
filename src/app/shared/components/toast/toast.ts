@@ -14,6 +14,7 @@ export class Toast {
   colorMapper: Record<ToastTone, string> = {
     success: 'text-emerald-800 bg-emerald-50',
     danger: 'text-rose-800 bg-rose-50',
+    info: 'text-blue-800 bg-blue-50',
   };
 
   ngOnInit() {

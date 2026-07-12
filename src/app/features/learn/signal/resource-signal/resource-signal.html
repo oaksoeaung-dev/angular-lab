@@ -1,0 +1,30 @@
+<div class="mb-10 flex items-center gap-3 rounded-lg border border-gray-300 px-3 py-2">
+  <button matButton="filled" (click)="reloadNumber()">Reload Number</button>
+  <button matButton="filled" (click)="setLocalValue(numberInput.valueAsNumber)">
+    Set Local Value
+  </button>
+  <mat-form-field appearance="outline" subscriptSizing="dynamic">
+    <input matInput type="number" #numberInput />
+  </mat-form-field>
+</div>
+<div class="flex h-20 w-100 items-center justify-center rounded-2xl bg-blue-50">
+  <div class="flex items-center gap-3">
+    <p class="font-medium text-zinc-500">Value</p>
+    <span class="font-bold text-blue-500">{{ apiNumber.value() }}</span>
+    <span>Status</span>
+    <span
+      class="rounded-lg px-3 py-1 text-xs"
+      [ngClass]="{
+        'bg-emerald-50 text-emerald-900': apiNumber.status() === 'resolved',
+        'bg-yellow-50 text-yellow-900': apiNumber.status() === 'loading',
+        'bg-rose-50 text-rose-900': apiNumber.status() === 'error',
+        'bg-violet-50 text-violet-900': apiNumber.status() === 'reloading',
+        'bg-teal-50 text-teal-900': apiNumber.status() === 'local',
+      }"
+      >{{ apiNumber.status() }}</span
+    >
+  </div>
+</div>
+@if (apiNumber.isLoading()) {
+  <span class="rounded-lg bg-blue-50 px-3 py-1 text-xs text-blue-900">Loading...</span>
+}
