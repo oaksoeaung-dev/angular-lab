@@ -1,0 +1,11 @@
+<div class="flex items-center gap-3 rounded-lg border border-gray-300 bg-gray-100 px-3 py-1">
+  @if (label()) {
+    <span>{{ label() }}</span>
+  }
+  <button matButton="filled" (click)="decrease()">-</button>
+  <mat-slider>
+    <input matSliderThumb step="1" min="0" max="100" [(ngModel)]="value" />
+  </mat-slider>
+  <button matButton="filled" (click)="increase()">+</button>
+  <span>{{ value() }}</span>
+</div>

@@ -1,0 +1,6 @@
+:root {
+  --mat-slider-active-track-color: var(--primary);
+  --mat-slider-handle-color: var(--primary);
+  --mat-slider-ripple-color: var(--primary);
+  --mat-slider-focus-handle-color: var(--primary)
+}

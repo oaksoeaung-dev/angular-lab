@@ -23,14 +23,22 @@ export class Api {
     });
   }
 
-  public multiplyByFiveAsync(value: number) {
+  public multiplyByFiveAsync(value: number, abortSignal?: AbortSignal) {
     this.toast.show(`[API] Getting a multiplier for seed : ${value}`, 'info');
     return new Promise<number>((resolve) => {
-      setTimeout(() => {
+      let handle: number | null = null;
+      handle = setTimeout(() => {
         const result = value * 5;
         this.toast.show(`[API] Multiplier received : ${result}`, 'success');
         resolve(result);
+        handle = null;
       }, 3000);
+      abortSignal?.addEventListener('abort', () => {
+        if (handle) {
+          clearTimeout(handle);
+          this.toast.show('Multiply Number - Cancelled!!!', 'info');
+        }
+      });
     });
   }
 }

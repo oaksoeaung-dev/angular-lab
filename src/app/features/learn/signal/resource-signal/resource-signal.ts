@@ -1,18 +1,20 @@
-import { Component, inject, resource } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
 import { Api } from './services/api';
 import { NgClass } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatInput } from '@angular/material/input';
+import { Numeric } from './components/numeric/numeric';
 
 @Component({
   selector: 'app-resource-signal',
-  imports: [NgClass, MatButton, MatFormField, MatInput],
+  imports: [NgClass, MatButton, MatFormField, MatInput, Numeric],
   templateUrl: './resource-signal.html',
 })
 export class ResourceSignal {
   private readonly api = inject(Api);
   protected readonly apiNumber = resource({
-    loader: (options) => this.api.getRandomNumberAsync(options.abortSignal),
+    params: () => ({ value: this.source() }),
+    loader: (options) => this.api.multiplyByFiveAsync(options.params.value, options.abortSignal),
     defaultValue: -1,
   });
 
@@ -23,4 +25,6 @@ export class ResourceSignal {
   protected reloadNumber() {
     this.apiNumber.reload();
   }
+
+  source = signal<number>(0);
 }
