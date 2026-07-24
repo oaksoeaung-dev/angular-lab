@@ -1,0 +1,10 @@
+.message-box {
+  --mat-form-field-container-text-size: 14px;
+  --mat-form-field-container-vertical-padding: 16px;
+
+  --mat-form-field-outlined-focus-outline-color: transparent;
+
+  --mat-form-field-outlined-hover-outline-color: transparent;
+
+  --mat-form-field-outlined-outline-color: transparent;
+}

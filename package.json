@@ -34,6 +34,7 @@
     "@angular/cli": "^22.0.8",
     "@angular/compiler-cli": "^22.0.8",
     "@tailwindcss/postcss": "^4.3.1",
+    "@vercel/node": "^5.8.26",
     "postcss": "^8.5.3",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.3.1",

@@ -11,6 +11,14 @@
 npm-debug.log
 yarn-error.log
 
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
 # IDEs and editors
 .idea/
 .project
