@@ -41,17 +41,28 @@ export class Test {
     this.messages.update((prev) => [...prev, { from: 'user', message: this.userMessage() }]);
     this.http
       .post('/api/chat', { message: this.userMessage() })
-      .subscribe((x: any) => {
-        x.output
-          .filter((f: any) => f.type === 'message')
-          .forEach((c: any) => {
-            c.content.forEach((t: any) => {
-              this.messages.update((prev) => [...prev, { from: 'ai', message: t.text }]);
+      .subscribe({
+        next: (x: any) => {
+          x.output
+            .filter((f: any) => f.type === 'message')
+            .forEach((c: any) => {
+              c.content
+                .filter((t: any) => t.type === 'output_text')
+                .forEach((t: any) => {
+                  this.messages.update((prev) => [...prev, { from: 'ai', message: t.text }]);
+                });
             });
-          });
 
-        this.userMessage.set('');
-        this.isLoading.set(false);
+          this.userMessage.set('');
+          this.isLoading.set(false);
+        },
+        error: () => {
+          this.messages.update((prev) => [
+            ...prev,
+            { from: 'ai', message: 'Sorry — something went wrong. Please try again.' },
+          ]);
+          this.isLoading.set(false);
+        },
       });
   }
 }
