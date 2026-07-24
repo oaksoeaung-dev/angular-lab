@@ -1,8 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 // Vector store used by the file_search tool. Not a secret, but kept
 // server-side so the client only sends the user's message.
 const VECTOR_STORE_ID = 'vs_6a636769be088191a6d56b311adddbaa';
@@ -12,7 +10,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  if (!process.env.OPENAI_API_KEY) {
+  const apiKey = process.env['OPENAI_API_KEY'];
+  if (!apiKey) {
     return res.status(500).json({ error: 'OPENAI_API_KEY is not configured' });
   }
 
@@ -21,6 +20,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (typeof message !== 'string' || message.trim().length === 0) {
     return res.status(400).json({ error: 'A non-empty "message" string is required' });
   }
+
+  // Instantiate lazily inside the handler: the OpenAI constructor throws when
+  // the key is missing, which at module scope would crash before the check above.
+  const client = new OpenAI({ apiKey });
 
   try {
     const response = await client.responses.create({
