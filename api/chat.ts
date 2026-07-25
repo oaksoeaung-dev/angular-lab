@@ -78,6 +78,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           vector_store_ids: [VECTOR_STORE_ID],
         },
       ],
+      instructions: instructions
     });
 
     return res.status(200).json(response);
