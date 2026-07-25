@@ -1,0 +1,18 @@
+@layer components {
+  table {
+    @apply border-collapse border border-gray-400 text-xs;
+  }
+  th{
+    @apply border border-gray-300 p-2;
+  }
+  td{
+    @apply border border-gray-300 p-2;
+  }
+
+  ul {
+    @apply list-disc list-inside
+  }
+  ol {
+    @apply list-decimal list-inside
+  }
+}
