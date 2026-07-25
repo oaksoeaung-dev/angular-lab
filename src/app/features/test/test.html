@@ -36,9 +36,9 @@
         } @else {
           <div class="flex justify-start">
             <div class="w-4/5 rounded-lg bg-gray-100 p-5">
-              <p class="text-sm">
-                {{ message.message }}
-              </p>
+              <div [innerHTML]="message.message" class="text-sm">
+
+              </div>
             </div>
           </div>
         }
