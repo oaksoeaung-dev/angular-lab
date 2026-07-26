@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
-const VECTOR_STORE_ID = 'vs_6a636769be088191a6d56b311adddbaa';
+const VECTOR_STORE_ID = 'vs_6a6615c4df248191a64008c99dc8c133';
 const instructions = `You are the Event Registration Support AI for Acme Event Management System.
 
 Your goal is to provide accurate, friendly, and concise customer support.
